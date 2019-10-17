@@ -83,6 +83,28 @@ login = {
 }
 ```
 
+## Setup letsencrypt SSL certificates (manual action)
+
+* make sure that you have *A-record* for your domain (e.g. https://websupport.sk, https://uk.godaddy.com/)
+  * A-record   example.domain.com  1.2.3.4
+  * set low TTL like 30s
+<br>
+* make sure that Nginx is running at target server 
+  * `ssh root@1.2.3.4` 
+  * `netstat -tunlp | grep -e 80 -e 443`
+
+<br>
+```bash
+
+# Run this command to generate SSL certificate
+
+certbot --nginx -d example.domain.com -m name.surname@gmail.com
+sed -i '/^\#\s*}/,/^\s*ssl_dh.*Certbot/s/^\(^\s*location\s\/\s{\)/\1 \n            proxy_pass http:\/\/localhost:5000;/' /etc/nginx/nginx.conf
+systemctl restart nginx
+
+certbot certificates
+```
+
 ## Install scaleway-cli
 
 ```bash
