@@ -6,7 +6,7 @@ resource "scaleway_security_group" "this" {
 resource "scaleway_security_group_rule" "this" {
   security_group = "${scaleway_security_group.this.id}"
 
-  action    = "drop"
+  action    = "accept"
   direction = "inbound"
   ip_range  = "0.0.0.0/0"
   protocol  = "TCP"
