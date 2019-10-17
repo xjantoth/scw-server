@@ -22,7 +22,7 @@ for SOFTWARE in firewalld nginx; do
   systemctl enable ${SOFTWARE} && systemctl start ${SOFTWARE}
 done
 
-for couple in 5000:tcp 80:tcp 443:tcp; do
+for couple in 80:tcp 443:tcp; do
   PORT=$(echo ${couple} | awk -F":" '{print $1}')
   PROTOCOL=$(echo ${couple} | awk -F":" '{print $2}')
   allow_fw_port ${PORT} ${PROTOCOL}

@@ -1,9 +1,4 @@
-variable "node_ports" {
-  type        = list(string)
-  default     = [80, 443]
-  description = "HTTP/S ports disabled"
+variable "sg_name" {
+  type        = "string"
+  description = "Security group name"
 }
-
-
-
-

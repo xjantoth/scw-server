@@ -8,7 +8,17 @@ variable "scw_token" {
   description = "Scaleway Token"
 }
 
+variable "scw_access_key" {
+  type        = "string"
+  description = "Scaleway Region Access Key"
+}
+
 variable "scw_region" {
+  type        = string
+  description = "Scaleway Region"
+}
+
+variable "scw_zone" {
   type        = string
   description = "Scaleway Region"
 }

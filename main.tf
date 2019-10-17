@@ -3,13 +3,17 @@ terraform {
 }
 
 provider "scaleway" {
-  organization = var.scw_organization
-  token        = var.scw_token
-  region       = var.scw_region
+  # version         = "~> 2.0"
+  access_key      = var.scw_access_key
+  secret_key      = var.scw_token
+  organization_id = var.scw_organization
+  zone            = var.scw_zone
+  region          = var.scw_region
 }
 
 module "security_group" {
   source = "./modules/security_group"
+  sg_name = var.name
 }
 
 module "server" {
