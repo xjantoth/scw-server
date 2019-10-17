@@ -94,10 +94,11 @@ login = {
   * `netstat -tunlp | grep -e 80 -e 443`
 
 <br>
-```bash
+
 
 # Run this command to generate SSL certificate
 
+```bash
 certbot --nginx -d example.domain.com -m name.surname@gmail.com
 sed -i '/^\#\s*}/,/^\s*ssl_dh.*Certbot/s/^\(^\s*location\s\/\s{\)/\1 \n            proxy_pass http:\/\/localhost:5000;/' /etc/nginx/nginx.conf
 systemctl restart nginx
