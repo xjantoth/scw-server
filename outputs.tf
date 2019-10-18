@@ -14,5 +14,9 @@ output "server_scaleway_instance_server_public_ip" {
   description = "Kubernetes server public ip"
 }
 
+output "this_security_group_id" {
+  value = module.security_group.this_security_group_id
+  description = "Security Group ID"
+}
 
 

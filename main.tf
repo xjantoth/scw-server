@@ -12,8 +12,9 @@ provider "scaleway" {
 }
 
 module "security_group" {
-  source = "./modules/security_group"
-  sg_name = var.name
+  source        = "./modules/security_group"
+  sg_name       = var.name
+  allowed_ports = var.allowed_ports
 }
 
 module "server" {

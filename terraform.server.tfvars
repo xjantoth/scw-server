@@ -11,3 +11,4 @@ server_script_initial = "server.sh"
 name                  = "wings"
 tags                  = ["wings", "terraform"]
 enabled               = "true"
+allowed_ports         = ["22", "80", "443"]

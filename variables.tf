@@ -63,3 +63,9 @@ variable "enabled" {
   description = "Flag to enable or disable the sending of emails"
   type        = "string"
 }
+
+variable "allowed_ports" {
+  description = "List of allowed Firewall Ports"
+  type        = "list"
+}
+
