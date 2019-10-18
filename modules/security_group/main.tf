@@ -1,11 +1,11 @@
 resource "scaleway_instance_security_group" "this" {
   inbound_default_policy  = "drop"
   outbound_default_policy = "accept"
-  
+
   # inbound_default_policy = "accept"
-  
-  name                   = "sg-${var.sg_name}"
-  description            = "Security group for Wings node."
+
+  name        = "sg-${var.sg_name}"
+  description = "Security group for Wings node."
 
 
   dynamic "inbound_rule" {
