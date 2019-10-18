@@ -1,7 +1,7 @@
 # Project structure
 
 ```bash
-tree -L 2   
+tree -L 2
 .
 ├── conf
 │   ├── auth.py
@@ -16,9 +16,10 @@ tree -L 2
 ├── terraform.server.tfvars
 ├── terraform.tfstate
 ├── terraform.tfstate.backup
-└── variables.tf
+├── variables.tf
+└── wings.md
 
-4 directories, 10 files
+4 directories, 11 files
 ```
 
 ## How to run terraform code with -var-file option
@@ -36,17 +37,19 @@ terraform destroy  -var-file=terraform.server.tfvars
 
 ```bash
 # General
-# General
-
-scw_region            = "par1"
+scw_access_key        = "..."
 scw_token             = "..."
 scw_organization      = "..."
+scw_zone              = "fr-par-1"
+scw_region            = "fr-par"
 operating_system      = "CentOS 7.6"
 instance_type         = "DEV1-S"
 server_script_initial = "server.sh"
-name                  = "server-name"
+name                  = "wings"
 tags                  = ["wings", "terraform"]
 enabled               = "true"
+allowed_ports         = ["22", "80", "443"]
+
 ```
 
 ## Create or fill in conf/auth.py file
